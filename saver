@@ -1,0 +1,87 @@
+<div id="selected">
+        <img :src="selectionItem[0].img == '' || selectionItem[0].img == null || typeof selectionItem[0].img == 'undefinded' ? 'https://i.imgur.com/6PRUynM.png' : selectionItem[0].img" alt="" style="height: 80%; width: 20%">
+        <div id="selectedItemInfo">
+            <div id="highSection">
+                <h3>{{ selectionItem[0].name }}</h3>
+                <p>{{ selectionItem[0].description }}</p>
+            </div>
+            <div id="underSection">
+                <p @click="setquantity('down')" class="action"><i class="fas fa-minus-circle"></i></p>
+                <p>{{ quantity }}</p>
+                <p @click="setquantity('up')" class="action"><i class="fas fa-plus-circle"></i></p>
+                <button @click="buyItem">Vásárlás <i class="fas fa-check"></i></button>
+            </div>
+            <div id="payment">
+                <p>Végösszeg: {{ selectionItem[0].ppPoint * quantity }} pp</p>
+            </div>
+        </div>
+    </div>  
+
+
+
+
+    #selected {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    overflow: none;
+    color: white;
+}
+#selectedItemInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: left;
+    width: 70%;
+    height: 90% !important;
+}
+#highSection {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+}
+#payment {
+    align-items: center;
+}
+#highSection h3 {
+    font-size: 1.7vmin;
+    margin: 1vmin;
+}
+#highSection p {
+    font-size: 1.5vmin;
+    margin: 1.5vmin;
+}
+#underSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+#underSection .action {
+    font-size: 1.5vmin;
+    text-align: center;
+    margin: 1vmin;
+    color: rgb(156, 156, 156);
+}
+#underSection .action:hover {
+    cursor: pointer;
+    color: rgb(199, 199, 199);
+}
+#underSection button {
+    margin: 0.5vmin;
+    border: none;
+    font-size: 1.3vmin;
+    width: 12vmin;
+    height: 3vmin;
+    border-radius: 1vmin;
+    background-color: #282F39;
+    color: white;
+}
+#underSection button:hover {
+    cursor: pointer;
+    background-color: rgb(73, 73, 73);
+}
